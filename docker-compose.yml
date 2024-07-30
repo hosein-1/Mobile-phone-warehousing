@@ -1,0 +1,45 @@
+services:
+  database:
+    container_name: postgres_database
+    image: postgres:16.3-bookworm
+    networks:
+      - main
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+  
+  app:
+    container_name: myapp
+    build: .
+    tty: true
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+    networks:
+      - main
+    restart: always
+
+  tailwind:
+    container_name: tailwind_css
+    build: .
+    tty: true
+    networks:
+      - main
+    volumes:
+      - .:/code
+    command: npx tailwindcss -i ./static/src/input.css -o ./static/src/app.css --watch
+    restart: always
+
+networks:
+  main:
+
+volumes:
+  postgres_data:
