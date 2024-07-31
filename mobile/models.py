@@ -24,7 +24,7 @@ class Mobile(models.Model):
     model = models.CharField(max_length=255, unique=True, verbose_name='مدل')
     price = models.PositiveIntegerField(verbose_name='قیمت')
     color = models.CharField(max_length=50, verbose_name='رنگ')
-    screen_size = models.PositiveIntegerField(verbose_name='سایز صفحه نمایش')
+    screen_size = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='سایز صفحه نمایش')
     status = models.CharField(max_length=11,
                               choices=MOBILE_STATUS,
                               default=MOBILE_STATUS_AVAILABLE,
