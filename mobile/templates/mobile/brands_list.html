@@ -8,11 +8,13 @@
 <div class="flex justify-center mt-10">
     <h3>لیست برندهای گوشی </h3>
 </div>
-<div class="flex justify-center mt-10 relative overflow-x-auto">
+<div class="container flex justify-center mt-10 relative overflow-x-auto">
     <table class="w-[700px] text-sm text-left rtl:text-right text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:text-gray-400">
             <tr>
-
+                <th scope="col" class="px-6 py-3">
+                    ردیف
+                </th>
                 <th scope="col" class="px-6 py-3">
                     برند
                 </th>
@@ -24,6 +26,9 @@
         <tbody>
             {% for brand in brands_queryset %}
             <tr class="bg-white border-b">
+                    <td class="px-6 py-4">
+                        {{ forloop.counter }}
+                    </td>
                     <td class="px-6 py-4">
                         {{ brand.name }}
                     </td>
