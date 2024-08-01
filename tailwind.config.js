@@ -10,7 +10,13 @@ module.exports = {
             DEFAULT: "1rem",
             lg: "0.625rem", 
           }
-      }
+      },
+    
+      fontFamily: {
+          "Vazir": "Vazir",
+          "VazirBold": "Vazir Bold",
+      },
+
     },
 
   },

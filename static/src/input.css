@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Vazir";
+        src: url("../fonts/Vazir/woff2/Vazir.woff2") format("woff2");
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: "Vazir Bold";
+        src: url("../fonts/Vazir/woff2/Vazir-Bold.woff2") format("woff2");
+        font-display: swap;
+    }
+}
