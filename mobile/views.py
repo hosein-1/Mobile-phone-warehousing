@@ -11,6 +11,7 @@ class MobileListView(ListView):
     model = Mobile
     template_name = 'mobile/mobiles_list.html'
     context_object_name = 'mobiles_queryset'
+    paginate_by = 7
     
     
 
@@ -33,6 +34,7 @@ class BrandListView(ListView):
     model = Brand
     template_name = 'mobile/brands_list.html'
     context_object_name = 'brands_queryset'
+    paginate_by = 7
 
 
 class BrandCreateView(SuccessMessageMixin, CreateView):
