@@ -8,6 +8,7 @@ from .forms import MobileCreateForm, BrandCreateForm
 class MobileListView(ListView):
     model = Mobile
     template_name = 'mobile/mobiles_list.html'
+    context_object_name = 'mobiles_queryset'
     
 
 class MobileCreateView(CreateView):

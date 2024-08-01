@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Mobiles list {% endblock %}
+
+{% block body %}
+
+{% for mobile in mobiles_queryset%}
+    <hr>
+    {{ mobile.brand }}
+    {{ mobile.model }}
+    {{ mobile.price }}
+    <hr>
+{% endfor %}
+
+{% endblock %}
