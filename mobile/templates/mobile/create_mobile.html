@@ -62,13 +62,13 @@
                 
                     </div>
                 </div>
-                <p class="block text-sm px-3 mt-3">اگر برندی جهت نمایش وجود ندارد از این قسمت اضافه کنید: <a href="" class="underline">اضافه کردن برند</a> </p>
+                <p class="block text-sm px-3 mt-3">اگر برندی جهت نمایش وجود ندارد از این قسمت اضافه کنید: <a href="{% url 'mobile:brand_create' %}" class="underline">اضافه کردن برند</a> </p>
                 <div class="w-full md:w-1/3 px-3 mt-6 mb-6 md:mb-0">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
                     وضعیت
                     </label>
                     <div class="relative">
-                    <select class="block w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="status" id="grid-state">
+                    <select class="block w-ful bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="status" id="grid-state">
                         <option value="available">موجود</option>
                         <option value="unavailable">ناموجود</option>
                     </select>

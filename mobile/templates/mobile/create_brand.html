@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Phone Create {% endblock %}
+
+{% block body %}
+
+<div class="flex items-center justify-center min-h-screen container">
+
+    <div class="bg-gray-100 p-4 rounded-md">
+        <div class="text-center mb-6">
+            <span class="text-2xl">اضافه کردن برند</span>
+        </div>
+    
+        <div class="container">
+            <form method="post" class="w-full max-w-lg">
+                {% csrf_token %}
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                        نام برند
+                        </label>
+                        <input name="name" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text">
+                    </div>
+                <div class="w-full md:w-1/2 px-3 mb-6">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                    ملیت برند
+                    </label>
+                    <input name="nationality" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text">
+                </div>         
+                </div>
+                <div class="flex justify-center mt-6">
+                    <button class="text-xl bg-emerald-500 p-2 w-1/2 text-center mt-2.5 md:mt-0 rounded-full">ذخیره</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+  {% endblock %}
