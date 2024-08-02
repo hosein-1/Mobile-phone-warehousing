@@ -3,14 +3,110 @@
 {% block title %} Mobiles list {% endblock %}
 
 {% block body %}
+<div class="container flex flex-wrap justify-around">
+    <div class="mt-10">
+        <span>فیلتر کردن گزارشات</span>
+        <form method="get" class="bg-cyan-700 flex-col max-w-sm mx-auto p-6">
+            <label for="brands" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">برندها</label>
+            <select name="brand__name" id="brands" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            <option selected></option>
+            {% for brand in brands_queryset %}
+                <option>{{ brand.name }}</option>
+            {% endfor %}
+            </select>
+            <label for="nationality" class="mt-3 block mb-2 text-sm font-medium text-gray-900 dark:text-white">ملیت برند</label>
+            <select name="brand__nationality" id="nationality" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            <option selected></option>
+            {% for brand in brands_queryset %}
+                <option>{{ brand.nationality }}</option>
+            {% endfor %}
 
-{% for mobile in mobiles_queryset%}
-    <hr>
-    {{ mobile.brand }}
-    {{ mobile.model }}
-    {{ mobile.price }}
-    <hr>
-{% endfor %}
+            </select>
+            <label for="origin" class="mt-3 block mb-2 text-sm font-medium text-gray-900 dark:text-white">کشور سازنده</label>
+            <select name="country_of_origin" id="origin" class="mt-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <option selected></option>
+                {% for country in country_of_origin_queryset %}
+                    <option>{{ country.country_of_origin }}</option>
+                {% endfor %}
+        
+                </select>
+            
+                <div class="flex justify-center mt-6">
+                    <button class="text-xl bg-emerald-500 p-2 w-full text-center mt-2.5 md:mt-0 rounded-md">جستجو</button>
+                </div>
+        </form>
+    </div>
+    <div>
+        <div class="flex justify-center mt-10">
+            <h3 class="font-VazirBold text-cyan-600">لیست گوشی ها</h3>
+        </div>
+        <div class="flex justify-center mt-10 relative overflow-x-auto">
+            <table class="text-sm text-left rtl:text-right text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:text-gray-400">
+                    <tr>
+  
+                        <th scope="col" class="px-6 py-3">
+                            نام برند
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            ملیت برند
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                             مدل گوشی
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            قیمت
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                             رنگ
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                             سایز صفحه نمایش
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                             وضعیت
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                             کشور سازنده
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mobile in mobiles_queryset %}
+                    <tr class="bg-white border-b">
+              
+                            <td class="px-6 py-4">
+                                {{ mobile.brand }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ mobile.brand.nationality }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ mobile.model }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ mobile.price }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ mobile.price }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ mobile.color }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ mobile.screen_size }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ mobile.country_of_origin }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
+
+</div>
 {% include 'pagination.html' %}
 {% endblock %}
