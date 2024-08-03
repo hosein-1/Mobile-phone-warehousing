@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django_jalali.db import models as jmodels
 
 
 class Brand(models.Model):
@@ -31,6 +32,8 @@ class Mobile(models.Model):
                               default=MOBILE_STATUS_AVAILABLE,
                               verbose_name='موجودی')
     country_of_origin = models.CharField(max_length=50, verbose_name='کشور سازنده')
+    datetime_created = jmodels.jDateTimeField(auto_now_add=True)
+    datetime_modified = jmodels.jDateTimeField(auto_now=True)
     
     def __str__(self) -> str:
         return f'{self.brand}: {self.model}'
