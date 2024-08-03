@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     
     'mobile.apps.MobileConfig',
     'account.apps.AccountConfig',
+    
+    'django_jalali',
 ]
 
 MIDDLEWARE = [
