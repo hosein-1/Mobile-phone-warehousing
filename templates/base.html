@@ -9,7 +9,9 @@
 <link rel="stylesheet" href="{% static 'src/app.css' %}">
 </head>
 <body class="font-Vazir">
-{% include 'navbar.html' %}
+{% if user.is_authenticated %}
+    {% include 'navbar.html' %}
+{% endif %}
 {% include 'messages.html' %}
 {% include 'errors.html' %}
 {% block body %} {% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block body %}
+
+
+<div class="flex justify-center items-center min-h-screen">
+    <div>
+  
+
+        <div class="flex justify-center gap-x-7 mb-7 sm:mb-10">
+            <h2 class="text-xl">ابتدا لازم است با دسترسی ادمین وارد شوید.</h2>
+
+        </div>
+        <div class="">
+            <span class="text-blue-500">توجه کنید برای ورود نام کاربری و رمز عبور شما به صورت زیر است:</span>
+            <p>نام کاربری:root</p>
+            <p>رمز عبور : root</p>
+        </div>
+  
+        <div class="max-w-[350px] text-lg px-6 py-5 bg-gray-300 text-center rounded-2xl">
+            <div class="user-data">
+                <h3 class="font-DanaDemiBold text-xl text-zinc-700 mb-[18px] dark:text-white">ورود</h3>
+       
+                <form method="post">
+                    {% csrf_token %}
+                    <div>
+                        <input type="text" name="username" class="rounded-lg text-base bg-white outline-none h-12 w-full ltr-text placeholder:text-right px-3.5" placeholder="نام کاربری">
+                        <input type="password" name="password" class="rounded-lg mt-3 text-base bg-white outline-none h-12 w-full ltr-text placeholder:text-right px-3.5" placeholder="رمز عبور">
+                        <button type="submit" class="h-[52px] w-full bg-cyan-600 rounded-full mt-5 text-zinc-700 mb-5">ورود</button>
+                    </div>
+                </form>
+
+                
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}

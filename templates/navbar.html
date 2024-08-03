@@ -21,10 +21,13 @@
     
         </ul>
       </div>
-      <a href="#" class="hidden md:flex items-center space-x-3 rtl:space-x-reverse">
-       
-        <span class="font-VazirBold self-center text-2xl whitespace-nowrap">مدیریت انبار</span>
-    </a>
+        <div class="flex gap-x-5">
+          <a href="{% url 'account:logout' %}" class="text-xl text-red-500">خروج</a>
+          {% if user.is_authenticated %}
+            <span class="font-VazirBold self-center text-2xl whitespace-nowrap">کاربر : {{ user.username }}</span>
+          {% endif %}
+        </div>
+
     </div>
   </nav>
   

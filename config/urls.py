@@ -24,4 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('mobile/', include('mobile.urls')),
     path('', views.MobileListView.as_view(), name='mobiles_list'),
+    path('account/', include('account.urls')),
+
 ]
