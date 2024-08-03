@@ -1,4 +1,7 @@
 from django.contrib import admin
+from django_jalali.admin.filters import JDateFieldListFilter
+import django_jalali.admin as jadmin
+
 
 from .models import Brand, Mobile
 
@@ -16,5 +19,6 @@ class mobileModelAdmin(admin.ModelAdmin):
         'color',
         'screen_size',
         'status',
-        'country_of_origin'
+        'country_of_origin',
+        'datetime_created',
     )
