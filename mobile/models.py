@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Brand(models.Model):
@@ -33,3 +34,7 @@ class Mobile(models.Model):
     
     def __str__(self) -> str:
         return f'{self.brand}: {self.model}'
+    
+    def get_absolute_url(self):
+        return reverse("mobile:mobile_edit", kwargs={'pk': self.pk})
+    

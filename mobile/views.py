@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView
 from django_filters.views import FilterView
 from django.contrib.messages.views import SuccessMessageMixin
 
@@ -40,6 +40,16 @@ class MobileCreateView(SuccessMessageMixin, CreateView):
         return context
 
 
+class MobileEditView(SuccessMessageMixin, UpdateView):
+    model = Mobile
+    fields = ['status', 'price']
+    template_name = 'mobile/edit_mobile.html'
+    success_url = reverse_lazy('mobiles_list')
+    
+    def get_success_message(self, cleaned_data):
+        return f' <<{self.object.model}>> با موفقیت ویرایش شد.'
+    
+    
 class BrandListView(ListView):
     model = Brand
     template_name = 'mobile/brands_list.html'
