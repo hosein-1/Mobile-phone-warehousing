@@ -4,7 +4,6 @@ from django.views.generic import ListView, CreateView
 from django_filters.views import FilterView
 from django.contrib.messages.views import SuccessMessageMixin
 
-
 from .models import Mobile, Brand
 from .forms import MobileCreateForm, BrandCreateForm
 from .filters import MobileFilter
@@ -16,6 +15,7 @@ class MobileListView(FilterView):
     context_object_name = 'mobiles_queryset'
     paginate_by = 7
     filterset_class = MobileFilter
+    queryset = Mobile.objects.select_related('brand').all()
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
