@@ -15,7 +15,7 @@ class MobileListView(FilterView):
     context_object_name = 'mobiles_queryset'
     paginate_by = 7
     filterset_class = MobileFilter
-    queryset = Mobile.objects.select_related('brand').all()
+    queryset = Mobile.objects.select_related('brand').all().order_by('-datetime_modified')
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
