@@ -19,7 +19,7 @@ class Mobile(models.Model):
         (MOBILE_STATUS_UNAVAILABLE, 'ناموجود')
     ]
     brand = models.ForeignKey( Brand,
-                              on_delete=models.CASCADE,
+                              on_delete=models.PROTECT,
                               related_name='mobiles',
                               verbose_name='برند')
     
